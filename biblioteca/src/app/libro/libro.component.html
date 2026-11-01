@@ -1,1 +1,30 @@
-<p>libro works!</p>
+<h2>Biblioteca escolar</h2>
+
+<p>Total de libros: <strong>{{ libros.length }}</strong></p>
+
+@if (libros.length === 0) {
+  <p>No hay libros registrados.</p>
+} @else {
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th><th>Código</th><th>Título</th><th>Autor</th><th>Año</th><th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (libro of libros; track libro.id) {
+        <tr>
+          <td>{{ libro.id }}</td>
+          <td>{{ libro.codigo }}</td>
+          <td>{{ libro.titulo }}</td>
+          <td>{{ libro.autor }}</td>
+          <td>{{ libro.anio }}</td>
+          <td>
+            <button type="button">Editar</button>
+            <button type="button">Eliminar</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
